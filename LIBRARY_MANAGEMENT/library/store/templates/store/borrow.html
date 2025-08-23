@@ -1,0 +1,42 @@
+{%  load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borrow</title>
+    <link rel="stylesheet" href="{% static 'store/style.css' %}">
+
+</head>
+<body>
+    <H3>Borrows...</H3>
+    <table border="1" cellpadding="5" cellspacing="0">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Member</th>
+            <th>Book</th>
+            <th>Borrow Date</th>
+            <th>Return Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for borrow in borrows %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ borrow.member }}</td>
+            <td>{{ borrow.book }}</td>
+            <td>{{ borrow.borrow_date }}</td>
+            <td>{{ borrow.return_date }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="5">No borrowed books found.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+    
+</body>
+</html>

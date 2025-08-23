@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'people/style.css'%}">
+
+</head>
+<body>
+    <table>
+        <thead>
+           <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone number</th>
+            <th>Join date</th>
+            <th>Is Loyal?</th>
+           </tr>
+        </thead>
+        <tbody>
+            {% for customer in customers %}
+            <tr>
+                <td>{{customer.name}}</td>
+                <td>{{customer.email}}</td>
+                <td>{{customer.phone_number}}</td>
+                <td>{{customer.join_date}}</td>
+                <td> {% if customer.is_loyal %}
+                        Yes
+                    {% else %}
+                        No
+                    {% endif %}</td>
+            </tr>
+             {% endfor %}
+        </tbody>
+    </table> 
+</body>
+</html>

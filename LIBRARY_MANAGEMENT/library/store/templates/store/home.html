@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+</head>
+<body>
+    <h1>Welcome....</h1>
+    <br>
+    <h3>Authors({{total_authors}})</h3>
+     <ul>
+        {% for author in authors %}
+            <li ><a href="{% url 'books_by_author' author.id %}">{{ author.name }}</a></li>
+        {% endfor %}
+    </ul>
+    <h3>categories({{total_categories}})</h3>
+     <ul>
+        {% for category in categories %}
+            <li ><a href="{% url 'books_by_category' category.id %}">{{ category.name }}</a></li>
+        {% endfor %}
+    </ul>
+   
+        
+    <h3><a href="{% url 'borrow' %}">Borrows - {{ total_borrowed }}</a></h3>
+    <h3><a href="{% url 'member_details' %}">Members - {{ total_members }}</a></h3>
+
+    
+</body>
+</html>

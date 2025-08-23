@@ -1,0 +1,38 @@
+{%  load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'store/style.css'%}">
+</head>
+<body>
+     <H3>Members...</H3>
+<table border="1" cellpadding="5" cellspacing="0">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for member in members %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ member.name }}</td>
+            <td>{{ member.email }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3">No members found.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+    
+</body>
+</html>   
